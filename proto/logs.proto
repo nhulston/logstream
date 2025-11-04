@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package logstream;
+
+option go_package = "github.com/nhulston/logstream/proto/gen";
+
+import "google/protobuf/timestamp.proto";
+
+message LogEntry {
+  google.protobuf.Timestamp timestamp = 1;
+  string service = 2;
+  string level = 3;  // INFO, WARN, ERROR, etc.
+  string message = 4;
+  string metadata = 5;  // JSON string
+  string trace_id = 6;
+  string span_id = 7;
+  string host = 8;
+  repeated string tags = 9;
+}
+
+message IngestRequest {
+  repeated LogEntry logs = 1;
+}
+
+message IngestResponse {
+  int32 accepted = 1;
+  int32 rejected = 2;
+  string error = 3;
+}
+
+service LogIngestion {
+  rpc Ingest(IngestRequest) returns (IngestResponse);
+}

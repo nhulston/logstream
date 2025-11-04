@@ -4,4 +4,5 @@ use (
 	./services/ingestion
 	./services/consumer
 	./services/query
+	./proto/gen
 )

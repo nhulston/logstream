@@ -52,7 +52,8 @@ resource "aws_instance" "logstream" {
   }
 
   user_data = templatefile("${path.module}/user_data.sh", {
-    environment = var.environment
+    environment  = var.environment
+    git_repo_url = var.git_repo_url
   })
 
   metadata_options {

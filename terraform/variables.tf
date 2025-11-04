@@ -39,3 +39,9 @@ variable "volume_size" {
   type        = number
   default     = 30 # Free tier includes 30GB
 }
+
+variable "git_repo_url" {
+  description = "Git repository URL to clone"
+  type        = string
+  default     = "https://github.com/nhulston/logstream.git"
+}

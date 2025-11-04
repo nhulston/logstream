@@ -1,3 +1,3 @@
-module github.com/yourusername/logstream/services/query
+module github.com/nhulston/logstream/services/query
 
 go 1.24

@@ -89,21 +89,20 @@ services:
       "
 
   # LogStream Ingestion Service (gRPC)
-  # Uncomment when service is ready
-  # ingestion:
-  #   build:
-  #     context: .
-  #     dockerfile: services/ingestion/Dockerfile
-  #   container_name: logstream-ingestion
-  #   depends_on:
-  #     kafka:
-  #       condition: service_healthy
-  #   ports:
-  #     - "50051:50051"
-  #   environment:
-  #     - KAFKA_BROKERS=kafka:29092
-  #     - GRPC_PORT=50051
-  #   restart: unless-stopped
+  ingestion:
+    build:
+      context: .
+      dockerfile: services/ingestion/Dockerfile
+    container_name: logstream-ingestion
+    depends_on:
+      kafka:
+        condition: service_healthy
+    ports:
+      - "50051:50051"
+    environment:
+      - KAFKA_BROKERS=kafka:29092
+      - GRPC_PORT=50051
+    restart: unless-stopped
 
   # LogStream Consumer Service
   # Uncomment when service is ready

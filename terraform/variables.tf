@@ -19,7 +19,7 @@ variable "project_name" {
 variable "instance_type" {
   description = "EC2 instance type"
   type        = string
-  default     = "t3.micro" # Free tier eligible, can upgrade to t3.small
+  default     = "t3.small" # 2GB RAM needed for Kafka + builds
 }
 
 variable "allowed_ssh_cidr" {

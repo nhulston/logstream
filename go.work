@@ -1,8 +1,10 @@
-go 1.24
+go 1.24.0
+
+toolchain go1.24.9
 
 use (
-	./services/ingestion
-	./services/consumer
-	./services/query
 	./proto/gen
+	./services/consumer
+	./services/ingestion
+	./services/query
 )

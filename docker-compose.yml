@@ -105,26 +105,25 @@ services:
     restart: unless-stopped
 
   # LogStream Consumer Service
-  # Uncomment when service is ready
-  # consumer:
-  #   build:
-  #     context: .
-  #     dockerfile: services/consumer/Dockerfile
-  #   container_name: logstream-consumer
-  #   depends_on:
-  #     kafka:
-  #       condition: service_healthy
-  #     postgres:
-  #       condition: service_healthy
-  #   environment:
-  #     - KAFKA_BROKERS=kafka:29092
-  #     - KAFKA_GROUP_ID=logstream-consumer-group
-  #     - POSTGRES_HOST=postgres
-  #     - POSTGRES_PORT=5432
-  #     - POSTGRES_DB=logstream
-  #     - POSTGRES_USER=logstream
-  #     - POSTGRES_PASSWORD=logstream_dev_password
-  #   restart: unless-stopped
+  consumer:
+    build:
+      context: .
+      dockerfile: services/consumer/Dockerfile
+    container_name: logstream-consumer
+    depends_on:
+      kafka:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    environment:
+      - KAFKA_BROKERS=kafka:29092
+      - KAFKA_GROUP_ID=logstream-consumer-group
+      - POSTGRES_HOST=postgres
+      - POSTGRES_PORT=5432
+      - POSTGRES_DB=logstream
+      - POSTGRES_USER=logstream
+      - POSTGRES_PASSWORD=logstream_dev_password
+    restart: unless-stopped
 
   # LogStream Query API Service
   # Uncomment when service is ready

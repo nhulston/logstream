@@ -13,7 +13,7 @@ grpcurl -plaintext -import-path "$PROTO_DIR" -proto logs.proto -d '{
       "timestamp": "2024-11-04T12:00:00Z",
       "service": "web-api",
       "level": "INFO",
-      "message": "Server started successfully",
+      "message": "Some example log",
       "host": "web-01",
       "tags": ["startup", "test"]
     },
@@ -21,7 +21,7 @@ grpcurl -plaintext -import-path "$PROTO_DIR" -proto logs.proto -d '{
       "timestamp": "2024-11-04T12:01:00Z",
       "service": "web-api",
       "level": "ERROR",
-      "message": "Failed to connect to database",
+      "message": "Some example error",
       "host": "web-01",
       "tags": ["database", "error"]
     }
